@@ -2,6 +2,7 @@ import fetch from 'node-fetch';
 import UsersAPI from './users/api';
 import BankAPI from './bank/api';
 import { APIMethod, APIResponse } from './api/globalTypes';
+import scopes from './scopes/typings';
 
 export class PlasmoAPI {
   private accessToken: string;
@@ -40,4 +41,8 @@ export class PlasmoAPI {
 
   users: UsersAPI = new UsersAPI(this);
   bank: BankAPI = new BankAPI(this);
+}
+
+export {
+    scopes
 }
