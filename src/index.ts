@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 import UsersAPI from './users/api';
 import BankAPI from './bank/api';
 import { APIMethod, APIResponse } from './api/globalTypes';
-import scopes from './scopes/typings';
+import oauth2 from './oauth2';
 
 export class PlasmoAPI {
   private accessToken: string;
@@ -22,8 +22,9 @@ export class PlasmoAPI {
         body: method === 'POST' ? JSON.stringify(body) : null,
         headers: {
           Authorization: 'Bearer ' + this.accessToken,
+          'Content-Type': 'application/json'
         },
-        method,
+        method
       })
         .then((res) => res.json())
         .then((json: APIResponse) => {
@@ -43,4 +44,4 @@ export class PlasmoAPI {
   bank: BankAPI = new BankAPI(this);
 }
 
-export { scopes };
+export { oauth2 };
