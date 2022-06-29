@@ -5,6 +5,5 @@ export interface APIResponse {
         msg: string,
         code: number
     },
-    data?: APIResponseData
+    data?: {}
 }
-export interface APIResponseData {}

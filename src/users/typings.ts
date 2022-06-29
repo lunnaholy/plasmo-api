@@ -1,4 +1,10 @@
-import { APIResponse } from "../api/globalTypes";
+import {
+    APIResponse
+} from "../api/globalTypes";
+import { Notification } from "../notifications/typings";
+import { Mark } from "../marx/typings";
+import { Warn } from "../warns/typings";
+import { Team } from "../teams/typings";
 
 export interface ProfileAPIResponse extends APIResponse {
     data?: {
@@ -11,13 +17,15 @@ export interface ProfileAPIResponse extends APIResponse {
         fusion: number,
         on_server: boolean,
         roles: Role[],
-        characters: null | Character[],
+        characters: null | [],
         warns: null | Warn[],
-        marks: null | [],
+        marks: null | Mark[],
         teams: null | Team[],
         stats?: Stats,
         heatmap?: HeatMapDay[],
-        skin_format: "slim" | "classic"
+        skin_format?: "slim" | "classic",
+        notifications?: Notification[],
+        unread?: number[]
     }
 }
 
@@ -39,60 +47,19 @@ export enum Role {
     "mko-helper"
 }
 
-export interface Character {
-    id: number,
-    name: string,
-    role: string,
-    description: string
-}
-
-export interface Warn {
-    message: string,
-    force: boolean,
-    revoked: boolean,
-    helper: string,
-    date: number
-}
-
-export interface Team {
-    id: number,
-    name: string,
-    description: string,
-    banner: string,
-    discord: string,
-    recruit: boolean,
-    members: number,
-    owner: string,
-    marx: number
-}
-
-export interface Mark {
-    id: number,
-    name: string, 
-    description: string,
-    owner: string,
-    x: number,
-    z: number,
-    branch: {
-        color: "red" | "blue" | "green" | "yellow",
-        direction: "left" | "right",
-        offset: number
-    },
-    world: "overworld" | "farmworld"
-}
-
 export interface HeatMapDay {
     date: string,
-    player: number
+        player: number
 }
 
 export interface Stats {
     all: number,
-    month: number,
-    week: number,
-    yesterday: number,
-    today: number,
-    on_site: boolean,
-    last_seen: number,
-    web_last_seen: number
+        month: number,
+        week: number,
+        yesterday: number,
+        today: number,
+        on_site: boolean,
+        last_seen: number,
+        web_last_seen: number
 }
+
