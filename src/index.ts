@@ -43,6 +43,4 @@ export class PlasmoAPI {
   bank: BankAPI = new BankAPI(this);
 }
 
-export {
-    scopes
-}
+export { scopes };
