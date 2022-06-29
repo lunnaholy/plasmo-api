@@ -29,10 +29,10 @@ export default class Client {
       }
       fetch(url, {
         method,
-        body: method === "POST" ? JSON.stringify(params) : null,
+        body: method === 'POST' ? JSON.stringify(params) : null,
         headers: {
-          'Content-Type': 'application/json'
-        }
+          'Content-Type': 'application/json',
+        },
       })
         .then((res) => res.json())
         .then((json: APIResponse) => {

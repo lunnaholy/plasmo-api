@@ -13,7 +13,7 @@ export default class Code {
       client_id: this.parent.clientId,
       redirect_uri: this.parent.redirectUri,
       response_type: OAuthReponseType.CODE,
-      scope: this.parent.scopes.join(" "),
+      scope: this.parent.scopes.join(' '),
     };
     return `${this.parent.authUrl}?${new URLSearchParams(params)}`;
   }

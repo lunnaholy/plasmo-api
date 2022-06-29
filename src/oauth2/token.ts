@@ -15,7 +15,7 @@ export default class Token {
           client_id: this.parent.clientId,
           client_secret: this.parent.clientSecret,
           grant_type: OAuthGrantType.REFRESH,
-          refresh_token: refreshToken
+          refresh_token: refreshToken,
         })
         .then((res: OAuthTokenResponse) => resolve(res))
         .catch((err) => reject(err));

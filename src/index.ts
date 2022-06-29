@@ -22,9 +22,9 @@ export class PlasmoAPI {
         body: method === 'POST' ? JSON.stringify(body) : null,
         headers: {
           Authorization: 'Bearer ' + this.accessToken,
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        method
+        method,
       })
         .then((res) => res.json())
         .then((json: APIResponse) => {
