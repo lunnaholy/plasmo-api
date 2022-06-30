@@ -8,12 +8,15 @@ export class PlasmoAPI {
   private accessToken: string;
   private baseUrl: string = 'https://rp.plo.su/api/';
 
+  debug: boolean = false;
+
   constructor(accessToken: string) {
     this.accessToken = accessToken;
   }
 
   call(url: string, method: APIMethod, body?: Record<string, any>): Promise<any> {
     return new Promise<APIResponse>((resolve, reject) => {
+      if(body === undefined) body = {};
       url = this.baseUrl + url;
       if (method === 'GET' && body != null) {
         url = url + '?' + new URLSearchParams(body);
@@ -28,8 +31,8 @@ export class PlasmoAPI {
       })
         .then((res) => res.json())
         .then((json: APIResponse) => {
-          if (json.status === false) {
-            reject(`Возникла ошибка во время обращения к API: ${json.error.msg} [${json.error.code}]`);
+          if (!json.status) {
+            reject(json);
           } else {
             resolve(json);
           }

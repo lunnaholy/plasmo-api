@@ -23,6 +23,7 @@ export default class Client {
 
   call(url: string, method: APIMethod, params?: Record<string, any>): Promise<APIResponse> {
     return new Promise((resolve, reject) => {
+      if(params === undefined) params = {};
       url = this.baseUrl + url;
       if (method === 'GET' && params != null) {
         url = url + '?' + new URLSearchParams(params);
