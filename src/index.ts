@@ -16,7 +16,7 @@ export class PlasmoAPI {
 
   call(url: string, method: APIMethod, body?: Record<string, any>): Promise<any> {
     return new Promise<APIResponse>((resolve, reject) => {
-      if(body === undefined) body = {};
+      if (body === undefined) body = {};
       url = this.baseUrl + url;
       if (method === 'GET' && body != null) {
         url = url + '?' + new URLSearchParams(body);
