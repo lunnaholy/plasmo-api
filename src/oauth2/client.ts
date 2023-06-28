@@ -11,8 +11,8 @@ export default class Client {
   redirectUri: string;
   scopes: Scope[];
 
-  baseUrl: string = 'https://rp.plo.su/api/';
-  authUrl: string = 'https://rp.plo.su/oauth2';
+  baseUrl: string = 'https://plasmorp.com/api/';
+  authUrl: string = 'https://plasmorp.com/oauth2';
 
   constructor(params: OAuthParams) {
     this.clientId = params.client_id;

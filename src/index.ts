@@ -6,7 +6,7 @@ import oauth2 from './oauth2';
 
 export class PlasmoAPI {
   private accessToken: string;
-  private baseUrl: string = 'https://rp.plo.su/api/';
+  private baseUrl: string = 'https://plasmorp.com/api/';
 
   debug: boolean = false;
 
